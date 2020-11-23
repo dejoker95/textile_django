@@ -1,0 +1,30 @@
+{% extends "frontpage/layout.html" %}
+{% block title %}
+이미지 리스트
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>이미지 리스트</h1>
+    <br>
+    {% if images %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <td><B>이름</B></td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for image in images %}
+            <tr>
+                <td> {{image.name}} </td>
+            </tr>    
+            {% endfor %}   
+            </tbody>
+        </table>
+    {% else %}
+    업로드한 파일이 없습니다
+    {% endif %}    
+    </div>
+    
+{% endblock %}
