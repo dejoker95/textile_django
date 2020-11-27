@@ -9,16 +9,25 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-sm bg-dark">
-      <ul class="navbar-nav">
-          <li class="nav-item">
-              <a class="nav-link" href="{% url 'frontpage:home' %}">이미지 업로드</a>
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">딥러닝 기반 의류 추천</a>
+    <button class="navbar-toggler" type="Button" data-toggler="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
+          <li class="nav-item active">
+              <a class="nav-link" href="{% url 'frontpage:home' %}">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'frontpage:list' %}">업로드 리스트</a>
-        </li>
+            <a class="nav-link" href="{% url 'frontpage:list' %}">List</a>
+          </li>
       </ul>
+    </div>
   </nav>
+  
 {% block content %}{% endblock %}
 </body>
+
 </html>
