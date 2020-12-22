@@ -5,16 +5,16 @@
 
 {% block content %}
 
-
-<form
-    method="POST"
-    action=""
-    enctype="multipart/form-data"
->
-    {% csrf_token %}
-    {{ form.as_p }}
-    <p>
-        클릭하면 업로드---><button type="submit">업로드</button>
-    </p>
-</form>
+<div class="container center">
+    <h1 class="text-center" style="padding-top:30px;">
+        당신의 사진을 넣어주세요
+    </h1>
+    <form style="text-align:center; margin-top:30px;" method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>
+            <button type="submit" class="btn btn-success">업로드</button>
+        </p>
+    </form>
+</div>
 {% endblock %}
