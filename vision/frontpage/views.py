@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from .forms import ImageForm
 from .models import Image
+from .serializers import ImageSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 # Create your views here.
 
 def index(request):
@@ -31,7 +35,9 @@ def result(request):
             
     return render(request,'frontpage/result.html',context)
 
-
-
-
+@api_view(['GET'])
+def image_list(request):
+    images = Image.objects.all()
+    serializers = ImageSerializer(images, many=True)
+    return Response(serializers.data)
 

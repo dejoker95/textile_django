@@ -7,5 +7,6 @@ app_name = 'frontpage'
 urlpatterns = [
     path('', views.index, name='home'),
     path('list/', views.show_list, name='list'),
-    path('result/',views.result,name='result')
+    path('result/',views.result,name='result'),
+    path('api/', views.image_list, name='image_list')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
