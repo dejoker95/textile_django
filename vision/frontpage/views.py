@@ -1,8 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import ImageForm
+
 from .models import Image, CrawledData
 from django.db import connection
+
+from .serializers import ImageSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 # Create your views here.
 
 
@@ -66,5 +72,12 @@ def result(request):
 #     context = {
 #         'data': data,
 #         'row1': data[0]}
+
+@api_view(['GET'])
+def image_list(request):
+    images = Image.objects.all()
+    serializers = ImageSerializer(images, many=True)
+    return Response(serializers.data)
+
 
 #     return render(request, 'frontpage/grid.html', context)
