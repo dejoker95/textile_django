@@ -75,8 +75,8 @@ def result(request):
 
 @api_view(['GET'])
 def image_list(request):
-    images = Image.objects.all()
-    serializers = ImageSerializer(images, many=True)
+    images = Image.objects.last()
+    serializers = ImageSerializer(images)
     return Response(serializers.data)
 
 
