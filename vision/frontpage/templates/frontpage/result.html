@@ -1,23 +1,14 @@
-{% extends "frontpage/layout.html" %}
-{% block title %}
-결과
-{% endblock %}
+{% extends "frontpage/layout.html" %} {% block title %} 결과 {% endblock %}
+{%block content %}
 
-{% block content %}
-
-<div class="container" style="float:left; width:40%;padding:10px">
-	<br>
-    <h2>업로드 사진</h2>
-    <br>
-    <img src="{{ images.image.url }}", style= "width: 400; height : auto;">
-    <br>
+<div class="container" style="float: left; width: 40%; padding: 10px">
+  <br />
+  <h2>업로드 사진</h2>
+  <br />
+  <img src="{{ images.image.url }}" , style="width: 400; height: auto" />
+  <br />
 </div>
-	<br>
+<br />
 {% include "frontpage/grid.html" %}
-	<br>
-<div class="container" style="float:left; width: 60%;">
-
-
-{% endblock %}
-
-
+<br />
+<div class="container" style="float: left; width: 60%">{% endblock %}</div>

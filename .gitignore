@@ -1,0 +1,16 @@
+# created by virtualenv automatically
+
+./vison/vision/setting.py
+
+./vision/DS_Store
+.DS_Store
+../.DS_Store
+# vscode
+.vscode
+
+# pycache
+*/__pycache__
+__pycache__
+
+# venv
+venv
