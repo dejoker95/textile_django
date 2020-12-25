@@ -9,6 +9,7 @@ from .serializers import ImageSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+import requests, json
 # Create your views here.
 
 
@@ -29,6 +30,7 @@ def index(request):
         'form': form,
         'data': data
     }
+
     return render(request, 'frontpage/index.html', context)
 
 
@@ -42,6 +44,9 @@ def show_list(request):
 def result(request):
     images = Image.objects.last()
 # test
+    url = '모델팀 주소'
+    json_data = requests.get(url).json()
+    # json_data == 딕셔너리일겁니다 아마도..
     data = CrawledData.objects.raw(
         'select id,img From crawled_data LIMIT 10')
     print(data[0].img)

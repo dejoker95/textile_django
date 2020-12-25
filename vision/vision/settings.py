@@ -82,10 +82,10 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'textiletest',
+        'NAME': 'clothesmetadataybigta',
         'USER': 'admin',
         'PASSWORD': 'ybigta1226',
-        'HOST': 'textiletest.ct0guinjlxs2.ap-northeast-2.rds.amazonaws.com',
+        'HOST': 'clothesmetadataybigta.ct0guinjlxs2.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
         'OPTIONS': {
             'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"'}
