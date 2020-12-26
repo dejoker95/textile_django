@@ -1,33 +1,43 @@
 <html lang="en">
-<head>
-  <title>{% block title %}{% endblock %}</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">의류 추천 시스템</a>
-    <button class="navbar-toggler" type="Button" data-toggler="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <a class="navbar-brand" href="#">YBIGTA 의류 스마트 렌즈</a>
+      <button
+        class="navbar-toggler"
+        type="Button"
+        data-toggler="collapse"
+        data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
-              <a class="nav-link" href="{% url 'frontpage:home' %}">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'frontpage:home' %}"
+              >Home<span class="sr-only">(current)</span></a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'frontpage:list' %}">List</a>
           </li>
-      </ul>
-    </div>
-  </nav>
-  
-{% block content %}{% endblock %}
-</body>
+        </ul>
+      </div>
+    </nav>
 
+    {% block content %}{% endblock %}
+  </body>
 </html>

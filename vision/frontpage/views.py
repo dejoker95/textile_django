@@ -9,7 +9,9 @@ from .serializers import ImageSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-import requests, json
+import requests
+import json
+from urllib import parse
 # Create your views here.
 
 
@@ -43,12 +45,26 @@ def show_list(request):
 
 def result(request):
     images = Image.objects.last()
+    serializers = ImageSerializer(images)
+    image_url = serializers.data['image'].split('/')[-1]
+
+    # 여기서 사진 주소만 넣었음. 앞에 localhost/media/~~ 이런거 넣으니깐 인식을 못함. ~~.png 만 존재. 나머지 앞 부분 ec2주소/media  는 모델팀 컴터에서 해야함.
+    print(image_url)
 # test
-    url = '모델팀 주소'
-    json_data = requests.get(url).json()
-    # json_data == 딕셔너리일겁니다 아마도..
+    url = 'http://13.125.191.170:8000/vector/{0}'.format(image_url)
+    print(url)
+    json_data = requests.get(url)
+    data = json_data.json()
+    print(data)
+    query = 'select id, img from crawled_data where id={0} \
+or id={1} or id={2} or id={3} or id={4} or id={5} or \
+id={6} or id={7} or id={8} or id={9}'.format(data[0]['id'], data[1]['id'], data[2]['id'], data[3]['id'], data[4]['id'], data[5]['id'], data[6]['id'], data[7]['id'], data[8]['id'], data[9]['id'])
+
+    # a = 10
+    # query = 'select id,img From crawled_data LIMIT '+str(a)
+
     data = CrawledData.objects.raw(
-        'select id,img From crawled_data LIMIT 10')
+        query)
     print(data[0].img)
     # context = {
     #     'data': data,
